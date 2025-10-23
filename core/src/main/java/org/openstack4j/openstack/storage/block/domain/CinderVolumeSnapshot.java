@@ -9,11 +9,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.openstack4j.util.ToStringHelper;
 import org.openstack4j.model.storage.block.Volume.Status;
 import org.openstack4j.model.storage.block.VolumeSnapshot;
 import org.openstack4j.model.storage.block.builder.VolumeSnapshotBuilder;
 import org.openstack4j.openstack.common.ListResult;
+import org.openstack4j.util.ToStringHelper;
 
 /**
  * An OpenStack Volume Snapshot which is a point-in-time copy of a volume.
@@ -28,12 +28,8 @@ public class CinderVolumeSnapshot implements VolumeSnapshot {
     private String id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("display_name")
-    private String displayName;
     @JsonProperty("description")
     private String description;
-    @JsonProperty("display_description")
-    private String displayDescription;
     @JsonProperty("volume_id")
     private String volumeId;
     private Status status;
@@ -82,25 +78,8 @@ public class CinderVolumeSnapshot implements VolumeSnapshot {
      * {@inheritDoc}
      */
     @Override
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public String getDescription() {
         return description;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    @JsonIgnore
-    public String getDisplayDescription() {
-        return displayDescription;
     }
 
     /**
@@ -183,14 +162,12 @@ public class CinderVolumeSnapshot implements VolumeSnapshot {
         @Override
         public VolumeSnapshotBuilder name(String name) {
             m.name = name;
-            m.displayName = name;
             return this;
         }
 
         @Override
         public VolumeSnapshotBuilder description(String description) {
             m.description = description;
-            m.displayDescription = description;
             return this;
         }
 
