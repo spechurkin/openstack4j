@@ -1,10 +1,12 @@
 .*
 release.properties
+publish.ps1
 javadoc
 !.travis.yml
 !.gitignore
 !.github
 !.editorconfig
+!.gitlab-ci.yml
 .classpath
 .project
 .orig
@@ -12,6 +14,8 @@ javadoc
 target/**/*
 target
 **/target
+.idea/
+.openidea/
 *.class
 Thumbs.db
 test-output
