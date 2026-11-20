@@ -2,7 +2,6 @@
 release.properties
 publish.ps1
 javadoc
-!.travis.yml
 !.gitignore
 !.github
 !.editorconfig
